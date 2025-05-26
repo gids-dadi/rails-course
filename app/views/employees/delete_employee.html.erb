@@ -79,7 +79,7 @@
       <div class="form-group row">
         <label>Notes:</label>
         <div>
-          <%= f.text_area :notes, placeholder: "Enter Notes", class: "form-control" %>
+          <%= f.rich_text_area :notes, placeholder: "Enter Notes", class: "form-control" %>
         </div>
       </div>
     </fieldset>
@@ -101,6 +101,31 @@
         </div>
       </div>
     </fieldset>
+
+
+    <fieldset>
+      <div class="form-group row">
+        <label class=" col-sm-2 control-label">Department:
+          <span class="stark">*</span>
+        </label>
+        <div class="col-sm-10">
+          <%= f.select :department_id, options_from_collection_for_select(select_department, :id, :name, f.object.department_id), { include_blank: 'Please Select Department' }, class: "form-control", autofocus: true %>
+          
+        </div>
+        </div>
+      </fieldset>
+
+       <fieldset>
+      <div class="form-group row">
+        <label class=" col-sm-2 control-label">Country:
+          <span class="stark">*</span>
+        </label>
+        <div class="col-sm-10">
+          <%= f.select :country_id, options_from_collection_for_select(select_country, :id, :name, f.object.country_id), { include_blank: 'Please Select Country' }, class: "form-control", autofocus: true %>
+          
+        </div>
+        </div>
+      </fieldset>
 
     <div class="form-group mt-4">
       <%= f.submit "Delete Record", { disable_with: 'Deleting...', class: "btn btn-danger" } %>

@@ -16,6 +16,8 @@
         <th>Last Name</th>
         <th>Phone</th>
         <th>Email</th>
+        <th>Department Name</th>
+        <th>Country</th>
         <th>Action</th>
       </tr>
     </thead>
@@ -27,6 +29,8 @@
           <td><%= employee.lastname %></td>
           <td><%= employee.phone %></td>
           <td><%= employee.email %></td>
+          <td><%= employee.department.name%></td>
+          <td><%= employee.country.name %></td>
           <td>
             <a href="<%= employee_path(employee)  %>">Details</a> |
             <a href="<%= edit_employee_path(employee) %>">Edit</a> |
