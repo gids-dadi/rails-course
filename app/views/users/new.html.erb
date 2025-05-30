@@ -1,0 +1,181 @@
+<div class="container mt-5 m-2">
+<h1>New Users</h1>
+
+<%= form_for @user, html: { class: "form-horizontal" } do |f| %>
+
+<div class="alert alert-info id="error_explanation">
+ <% if @user.errors.present? %>
+  <h3 class="error "><%="#{pluralize(@user.errors.count, "error")} prohibited this user  from being created:"%></h3>
+ <% end%>
+
+ <ul class="error-list">
+   <% @user.errors.full_messages.each do |message| %>
+     <li><%= message %></li>
+   <% end %>
+  </ul>
+</div>
+
+  <fieldset>
+    <div class="form-group row">
+      <label class="col-sm-2 control-label">Name:
+        <span class="text-danger star">*</span>
+      </label>
+      <div class="col-sm-10">
+        <%= f.text_field :name, placeholder: "Enter name", class: "form-control" %>
+        <%= print_error(@user.errors, :name) %>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <div class="form-group row">
+      <label class="col-sm-2 control-label">Password:
+        <span class="text-danger star">*</span>
+      </label>
+      <div class="col-sm-10">
+        <%= f.password_field :password, placeholder: "Enter Password", class: "form-control" %>
+           <%= print_error(@user.errors, :password) %>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <div class="form-group row">
+      <label class="col-sm-2 control-label">Confirm Password:
+        <span class="text-danger star">*</span>
+      </label>
+      <div class="col-sm-10">
+        <%= f.password_field :password_confirmation, placeholder: "Enter Password to Match", class: "form-control" %>
+         <%= print_error(@user.errors, :password_confirmation) %>
+        
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <div class="form-group row">
+      <legend class="col-form-label col-sm-2 pt-0">Gender:
+        <span class="text-danger star">*</span>
+      </legend>
+      <div class="col-sm-10">
+        <div class="form-check">
+          <%= f.radio_button :gender, "Male", { checked: true, class: "form-check-input", id: "male", data: { toggle: 'radio' } } %>
+         
+          <label class="form-check-label" for="male">Male</label>
+        </div>
+        <div class="form-check">
+          <%= f.radio_button :gender, "Female", { class: "form-check-input", id: "female", data: { toggle: 'radio' } } %>
+  
+          <label class="form-check-label" for="female">Female</label>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <div class="form-group row">
+      <label class="col-sm-2 control-label">Birth Date:
+        <span class="text-danger star">*</span>
+      </label>
+      <div class="col-sm-10">
+        <%= f.date_field :birthdate, class: "form-control" %>
+         <%= print_error(@user.errors, :birthdate) %>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <div class="form-group row">
+      <label class="col-sm-2 control-label">Email:
+        <span class="text-danger star">*</span>
+      </label>
+      <div class="col-sm-10">
+        <%= f.email_field :email, placeholder: "Enter Email", class: "form-control", autofocus: true %>
+         <%= print_error(@user.errors, :email) %>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <div class="form-group row">
+      <label class="col-sm-2 control-label">Phone Number:
+        <span class="text-danger star">*</span>
+      </label>
+      <div class="col-sm-10">
+        <%= f.text_field :phone, placeholder: "Enter Phone Number", class: "form-control", autofocus: true %>
+         <%= print_error(@user.errors, :phone) %>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <div class="form-group row">
+      <label class="col-sm-2 control-label">Postal Code:
+        <span class="text-danger star">*</span>
+      </label>
+      <div class="col-sm-10">
+        <%= f.text_field :postalcode, placeholder: "Enter Postal Code", class: "form-control", autofocus: true %>
+         <%= print_error(@user.errors, :postalcode) %>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <div class="form-group row">
+      <label class="col-sm-2 control-label">Profile of User:
+        <span class="text-danger star">*</span>
+      </label>
+      <div class="col-sm-10">
+        <%= f.text_area :notes, placeholder: "Enter Profile", class: "form-control" %>
+         <%= print_error(@user.errors, :notes) %>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <div class="form-group row">
+      <label class="col-sm-2 control-label">Website URL:
+        <span class="text-danger star">*</span>
+      </label>
+      <div class="col-sm-10">
+        <%= f.text_field :websiteurl, placeholder: "Enter Website URL", class: "form-control" %>
+         <%= print_error(@user.errors, :websiteurl) %>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <div class="form-group row">
+      <label class="col-sm-2 control-label">Terms and Conditions:
+        <span class="text-danger star">*</span>
+      </label>
+      <div class="col-sm-10">
+        <div class="form-check">
+          <%= f.check_box :termsandcondition, class: "form-check-input" %>
+           <%= print_error(@user.errors, :termsandcondition) %>
+          <label class="form-check-label">I agree</label>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <div class="form-group row">
+      <label class="col-sm-2 control-label">Role:
+        <span class="text-danger star">*</span>
+      </label>
+      <div class="col-sm-10">
+        <%= f.text_field :role, placeholder: "Enter Role (e.g. admin, moderator, regular)", class: "form-control" %>
+         <%= print_error(@user.errors, :role) %>
+      </div>
+    </div>
+  </fieldset>
+
+  <div class="form-group row">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit 'Sign Up', class: "btn btn-primary", formnovalidate:true %>
+    </div>
+  </div>
+
+<% end %>
+</div>
