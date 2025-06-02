@@ -1,0 +1,28 @@
+{
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "notebook.defaultFormatter": "esbenp.prettier-vscode",
+  "notebook.formatOnCellExecution": true,
+  "notebook.formatOnSave.enabled": true,
+
+  // 👇 Add Ruby and ERB formatter support
+  "[ruby]": {
+    "editor.defaultFormatter": "wingrunr21.vscode-ruby"
+  },
+  "[erb]": {
+    "editor.defaultFormatter": "aliariff.vscode-erb-beautify"
+  },
+  "[html.erb]": {
+    "editor.defaultFormatter": "aliariff.vscode-erb-beautify"
+  },
+
+  // 👇 Ensure VSCode treats .html.erb files correctly
+  "files.associations": {
+    "*.html.erb": "erb"
+  },
+
+  // Optional: format on save for specific languages
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit"
+  }
+}
