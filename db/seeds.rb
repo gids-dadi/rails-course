@@ -17,9 +17,30 @@ Department.create!(name: "Accounting")
 end
 
 unless Country.blank?
-Country.create!(name: "United States")
-Country.create!(name: "Canada")
-Country.create!(name: "Mexico")
-Country.create!(name: "United Kingdom")
+Country.create!(name: "Nigeria")
+Country.create!(name: "USA")
 Country.create!(name: "Brazil")
+Country.create!(name: "Italy")
+Country.create!(name: "Brazil")
+end
+
+unless State.blank?
+State.create!(name: "Abia", country_id: 1 )
+State.create!(name: "Anambra", country_id: 1 )
+State.create!(name: "Lagos", country_id: 1 )
+
+State.create!(name: "California", country_id: 2 )
+State.create!(name: "Alaska", country_id: 2 )
+
+end
+
+
+unless City.blank?
+  City.create!(name: "Aba", state_id: 1 )
+  City.create!(name: "Onitsha", state_id: 2 )
+  City.create!(name: "Ikeja", state_id: 3 )
+
+  City.create!(name: "Los Angeles", state_id: 1 )
+  City.create!(name: "San Francisco", state_id: 2 )
+
 end

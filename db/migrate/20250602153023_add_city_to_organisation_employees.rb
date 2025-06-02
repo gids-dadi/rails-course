@@ -1,0 +1,5 @@
+class AddCityToOrganisationEmployees < ActiveRecord::Migration[8.0]
+  def change
+    add_reference :organisation_employees, :city, null: false, foreign_key: true
+  end
+end
