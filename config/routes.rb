@@ -24,4 +24,9 @@ Rails.application.routes.draw do
 
   resources:users
 
+  resources :organisation_employees, only: [:new, :create]
+
+  get "locations/states", to: "locations#states"
+  get "locations/cities", to: "locations#cities"
+
 end
